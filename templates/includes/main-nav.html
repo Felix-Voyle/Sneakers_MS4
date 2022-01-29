@@ -24,7 +24,7 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
                 {% for brand in brands %}
-                    <a href="" class="dropdown-item">{{ brand.friendly_name }}</a>
+                    <a href="{% url 'products' %}?brand={{ brand.name }}" class="dropdown-item">{{ brand.friendly_name }}</a>
                 {% endfor %}
             </div>
         </li>
