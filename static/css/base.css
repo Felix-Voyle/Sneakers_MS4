@@ -9,6 +9,16 @@ body {
     font-weight: 300;
 }
 
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: white;
+    z-index: -1;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -70,6 +80,16 @@ body {
 img {
     max-height: 100vh;
     object-fit: cover;
+}
+
+/* ----Products------*/
+
+
+@media (min-width: 576px) {
+    .product-img {
+        height: 375px;
+    }
+    
 }
 
 /*-------- Media Queries */
