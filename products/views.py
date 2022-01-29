@@ -12,20 +12,28 @@ def all_products(request):
     products = Product.objects.all()
     brands = Brand.objects.all()
     query = None
+    search_brand = None
 
     if request.GET:
+        if 'brand' in request.GET:
+            search_brand = request.GET['brand']
+            products = products.filter(brand__name__contains=search_brand)
+            search_brand = Brand.objects.filter(name__in=search_brand)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
                 messages.error(request, "You didn't enter any search criteria")
                 return redirect(reverse('products'))
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(
+                name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
 
     context = {
         'products': products,
         'brands': brands,
-        'search_term': query
+        'search_term': query,
+        'search_brand': search_brand,
     }
 
     return render(request, 'products/products.html', context)
