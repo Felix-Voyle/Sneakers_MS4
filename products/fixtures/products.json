@@ -1,0 +1,171 @@
+[
+    {
+      "pk": 1,
+      "model": "products.product",
+      "fields": {
+        "sku": "pp5001340001",
+        "name": "Air Force 1 x Carharrt",
+        "description": "Doused in an earthy brown colour scheme, the Carhartt Nike Air Force 1 Ale Brown is crafted from light brown woven duck canvas with dark corduroy hitting the heel and ankle region offering a dash of contrast to an otherwise muted silhouette. Additional Carhartt detailing arrives in the form of a signature square logo on the left tongue, work boot style laces, and a detachable heel tab for added convenience. Down below, an Air midsole offers extra comfort with every step.",
+        "price": 200.00,
+        "release_date": "2021-12-20",
+        "brand": 1,
+        "image": "AirForce1xCarhartt.jpg"
+      }
+    },
+    {
+      "pk": 2,
+      "model": "products.product",
+      "fields": {
+        "sku": "pp5001340002",
+        "name": "Air Jordan 1 Satin Snake",
+        "description": "Jordan Brand added luxe materials to a classic silhouette with the release of the women's Jordan 1 Retro High Satin Snake Chicago (W). This release combines Jumpman''s ongoing Satin 1 concept with the colorway that started it all. This women's Jordan 1 consists of a white and red leather upper with red satin tongue and liner. Black faux snakeskin leather detailing appears on the upper as well. A white midsole, red outsole, and a traditional Jordan Wings graphic on the ankle completes the design",
+        "price": 180.00,
+        "release_date": "2021-03-10",
+        "brand": 2,
+        "image": "AirJordan1SatinSnake.jpg"
+      }
+    },
+    {
+      "pk": 3,
+      "model": "products.product",
+      "fields": {
+        "sku": "pp5001340003",
+        "name": "Air Max 90 Croc Camo",
+        "description": "With Nike's Air Max 90 quickly approaching its 30th birthday, great colourways seem to be coming thick and fast out of Beaverton. This time heading a little further afield, and continuing the run of exotic-themed make-ups, Tinker''s iconic silhouette gets a safari-inspired reworking; teaming crocodile textured leather with a mishmash of animal-inspired camo prints across the faux fur uppers. Underfoot, the signature sole unit receives a translucent rubber coating to subtly showcase the blood red from within, a final nod towards the wild inspiration.",
+        "price": 170.00,
+        "release_date": "2021-12-16",
+        "brand": 1,
+        "image": "AirMax90CrocCamo.jpg"
+      }
+    },
+    {
+      "pk": 4,
+      "model": "products.product",
+      "fields": {
+        "sku": "pp5001340004",
+        "name": "Air Max 90 Cuban Link",
+        "description": "Currently celebrating three decades and a quarter of a century in circulation respectively, we''ve seen a few interesting treatments across both the Air Max 90 and 95 so far this year, but this one may well trump them all. These unique constructions feature creamy off-white and yellow palettes offset with delicate pink swooshes, but the real focus is a Cuban link style keychain hanging from the eyelet, which holds a golden swoosh trinket.",
+        "price": 160.00,
+        "release_date": "2021-09-28",
+        "brand": 1,
+        "image": "AirMax90CubanLink.jpg"
+      }
+    },
+    {
+      "pk": 5,
+      "model": "products.product",
+      "fields": {
+        "sku": "pp5001340005",
+        "name": "Air Max 97 X Off White",
+        "description": "Virgil Abloh put his unique twist on the Nike Air Max 97. Made in collaboration with Off-White, they were a part of 'The 10' Collection, and dropped in the second set from the two brands, the 'Ghosting' Pack. They come in a white, cone and ice blue colorway. Sporting a reconstructed translucent upper, featuring a semi-revealing material to tie-in with the theme. Various materials are found throughout, as well as a red zip-tie and branding on the tongue, black branding throughout the rest of the shoe, green lace tips and a translucent outsole. Their release date was November 1st, 2017 where they were available alongside the rest of the Off-White x Nike 'Ghosting' Collection. Retail for 'The 10' Nike Air Max 97 was $190 and they were available in men's sizing at select retailers worldwide. If you're a fan of the Nike Air Max 97 and Off-White, this is another must-have pair. Those looking for them can buy one online. If you have one to sell, hit up the marketplace and see what they are going for.",
+        "price": 349.99,
+        "release_date": "2021-02-05",
+        "brand": 1,
+        "image": "Airmax97xoffwhite.jpg"
+      }
+    },
+    {
+      "pk": 6,
+      "model": "products.product",
+      "fields": {
+        "sku": "pp5001340006",
+        "name": "Comme Des Garçons X Converse",
+        "description": "One of the most popular sneaker collabs of all-time, the Comme Des Garcons Play x Converse Chuck 70 is a classic which belongs in every sneaker collection. The eye-catching Comme Des Garcons Play logo is the main attraction of this trainer, adding a playful aspect to the classic Chuck 70 silhouette. The red heart logo stands out against a neutral white upper, perfect for pairing with almost any outfit you can think of!",
+        "price": 119.99,
+        "release_date": "2021-10-31",
+        "brand": 3,
+        "image": "CommeDeGarconXConverse.jpg"
+      }
+    },
+    {
+      "pk": 7,
+      "model": "products.product",
+      "fields": {
+        "sku": "pp5001340007",
+        "name": "Air Force 1 colour-block",
+        "description": "Multicoloured calf leather Air Force 1 colour-block sneakers from Nike featuring a round toe, a lace-up front fastening, a signature Nike swoosh, a branded insole and a white rubber sole.",
+        "price": 125.00,
+        "release_date": "2021-04-29",
+        "brand": 2,
+        "image": "AirForce1ColourBlock.jpg"
+      }
+    },
+    {
+      "pk": 8,
+      "model": "products.product",
+      "fields": {
+        "sku": "pp5001340007",
+        "name": "New Balance 997 Grey Day",
+        "description": "This time, New Balance reimagined the retro-runner 997, one in its original form, as well as one of the updated Sport iteration. Flipping the concept, the typical tongue branding has been moved to the side panels, boasting now the “new balance, Made in USA” embroidery on the OG silhouette, and leaving it off the tongue. The modern New Balance 997S version keeps it rather original, featuring a silver metallic “N” logo, and bold ENCAP REVEAL midsole.",
+        "price": 110.00,
+        "release_date": "2021-07-18",
+        "brand": 4,
+        "image": "NewBalance997HGreyDay.jpg"
+      }
+    },
+    {
+      "pk": 9,
+      "model": "products.product",
+      "fields": {
+        "sku": "pp5001340008",
+        "name": "Yeezy 500 Ash Grey",
+        "description": "The popular Yeezy 500 silhouette takes on a refreshing understated colourway. Much like the other models, the Yeezy 500 Ash Grey follows the same chunky build and features a mix of different materials. It starts with the usual mesh fabric in the side panels which is now dressed in an ashy shade. Grey suede overlays with the signature Yeezy geometric cut-outs embellish the upper, while a light grey mudguard with a slight green tint adds sleekness to the shoe. Elsewhere, the exaggerated sole is given a darker almost-slate hue which nicely contrasts from the other areas.",
+        "price": 300.00,
+        "release_date": "2021-08-12",
+        "brand": 2,
+        "image": "Yeezy500.jpg"
+      }
+    },
+    {
+      "pk": 10,
+      "model": "products.product",
+      "fields": {
+        "sku": "pp5001340009",
+        "name": "Air Max React 270 X Travis Scott “Cactus Tails",
+        "description": "Nike and Travis Scott teamed up once again to deliver the Nike Air Max 270 React Travis Scott, now available on StockX. This is the first time La Flame has put his signature touch on an Air Max silhouette. This Air Max 270 consists of a mesh upper with tumblr leather and suede overlays. A gold midsole, green tongue with attached lace locks, and Cactus Jack branding on the heel tabs completes the design",
+        "price": 200.00,
+        "release_date": "2022-04-23",
+        "brand": 1,
+        "image": "AirMax270ReactxTravisScottCactusTrails.jpg"
+      }
+    },
+    {
+      "pk": 11,
+      "model": "products.product",
+      "fields": {
+        "sku": "pp5001340010",
+        "name": "Air Jordan 1 Mid Familia did De Los Muertos",
+        "description": "Created in honour of the Mexican holiday, The Day of the Dead, the Air Jordan 1 Mid Familia is made with a bold, strong colour palette that perfectly reflects this celebratory event. With tones of lavish fuchsia and gold, you can''t help but feel excited when you look at the unique Air Jordan Mid Familia sneakers. The white leather panelling and outer sole works perfectly to highlight the bold colour tones and offers an elegant contrast. The golden Nike swoosh is given something a little different, with fuchsia stitching around the border. The Air Jordan 1 Mid Familia's really feel as good as they look, with a comfortable cushioned sole and ankle support to keep you celebrating in style all day long. The Air Jordan 1 Mid Familia is completed with another splash of bright purple on the sole.",
+        "price": 125.00,
+        "release_date": "2022-04-12",
+        "brand": 1,
+        "image": "Jordan1ParaMi.jpg"
+      }
+    },
+    {
+      "pk": 12,
+      "model": "products.product",
+      "fields": {
+        "sku": "pp5001340011",
+        "name": "Air Jordan 1 Mid Se Union Black Toe",
+        "description": "The sneaker is reminiscent of the high profile collaboration between Jordan and LA boutique Union that released back in 2018. The mid has seen its popularity skyrocket this year, with colourways like this it is easy to see why. The Jordan 1 Union Black Toe SE comes crafted from a range of materials. Premium leather and suede are giving the sneaker that luxury feel. It's dressed in a black, white and red combination which is what provides the silhouette with the feel of the Jordan x Union collab. The classic white sole features Nike Air cushioning for optimum comfort and style. You will also find the Jordan wings logo on the side panels as is tradition, with the Jumpman Air logo ever present on the tongue. If you have been collecting Jordan Mids this year or are looking to pick up your first pair, the Jordan 1 SE Union Black Toe Mid is a must cop.",
+        "price": 200.00,
+        "release_date": "2022-05-20",
+        "brand": 1,
+        "image": "AirJordan1MidSe.jpg"
+      }
+    },
+    {
+      "pk": 13,
+      "model": "products.product",
+      "fields": {
+        "sku": "pp5001340012",
+        "name": "Yeezy Boost 350",
+        "description": "This Yeezy showcases an industrial-inspired upper. Maybe its a nod to Kanye''s close friend Virgil Abloh who utilised an array of deconstructed features for his Off-White collection. Just like some of those, a complete see-through stripe features across the sidewall. And so, this pair is also going by the name Yeezy Boost 350 V2 Clear Stripe.",
+        "price": 275.00,
+        "release_date": "2021-7-18",
+        "brand": 2,
+        "image": "YeezyBoost350.jpg"
+      }
+    }
+  ]
