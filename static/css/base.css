@@ -84,12 +84,23 @@ img {
 
 /* ----Products------*/
 
+.product-detail-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px;
+}
 
 @media (min-width: 576px) {
     .product-img {
         height: 375px;
     }
     
+}
+
+@media (max-width: 768px) {
+    .product-detail-img {
+        height: 345px;
+        width: 80%;
+    }
 }
 
 /*-------- Media Queries */
