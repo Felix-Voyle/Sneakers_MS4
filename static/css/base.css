@@ -121,12 +121,12 @@ img {
       }
   
       .header-container {
-          padding-top: 64px;
+          padding-top: 164px;
       }
   }
 
   @media (max-width: 992px) {
       .header-container {
-          padding-top: 164px;
+          padding-top: 180px;
       }
   }
