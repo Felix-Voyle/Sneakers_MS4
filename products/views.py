@@ -72,3 +72,19 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'products/product_detail.html', context)
+
+
+def upcoming_products(request):
+    """A view to show product details of individual product"""
+
+    now = datetime.now()
+    date_today = now.date()
+    products = Product.objects.filter(release_date__gt=date_today)
+    brands = Brand.objects.all()
+
+    context = {
+        'products': products,
+        'brands': brands,
+    }
+
+    return render(request, 'products/upcoming_products.html', context)
