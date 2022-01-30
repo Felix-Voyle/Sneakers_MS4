@@ -2,14 +2,17 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from .models import Product, Brand
+from datetime import datetime, timedelta
 
 # Create your views here.
 
 
-def all_products(request):
+def shop_products(request):
     """A view to show products that have released and available to buy"""
 
-    products = Product.objects.all()
+    now = datetime.now()
+    date_today = now.date()
+    products = Product.objects.filter(release_date__lte=date_today)
     brands = Brand.objects.all()
     query = None
     search_brand = None
@@ -32,7 +35,7 @@ def all_products(request):
 
         if 'brand' in request.GET:
             search_brand = request.GET['brand']
-            products = products.filter(brand__name__contains=search_brand)
+            products = products.filter(release_date__lte=date_today, brand__name__contains=search_brand)
             search_brand = Brand.objects.filter(name__in=search_brand)
 
         if 'q' in request.GET:
