@@ -29,6 +29,13 @@
             <div class="col-12 col-md-6 col-lg-7">
                 <div class="product-details-container mb-5 mt-md-5">
                     <p class="mb-0 product-detail-name"><strong>{{ product.name }}</strong></p>
+                    {% if product.brand %}
+                    <p class="small mt-1 mb-0">
+                        <a href="{% url 'products' %}?brand={{ product.brand.name }}" class="text-muted">
+                            {{ product.brand.friendly_name }}
+                        </a>
+                    </p>
+                    {% endif %}
                     <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
                     {% if product.rating %}
                         <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>

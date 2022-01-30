@@ -7,7 +7,7 @@ class Brand(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     def get_friendly_name(self):
         return self.friendly_name
 
@@ -19,7 +19,7 @@ class Product(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=7, decimal_places=2)
     rating = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True)
-    release_date = models.CharField(max_length=12, null=True, blank=False)
+    release_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
