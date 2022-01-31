@@ -66,9 +66,14 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     brands = Brand.objects.all()
 
+    sizes = []
+    for i in range(1, 13):
+        sizes.append(i)
+
     context = {
         'product': product,
         'brands': brands,
+        'sizes': sizes,
     }
 
     return render(request, 'products/product_detail.html', context)
