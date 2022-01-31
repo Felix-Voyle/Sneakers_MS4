@@ -109,6 +109,17 @@ img {
     }
 }
 
+/* ------ bag ----- */
+
+.bag-img {
+    height: 300px;
+    width: 200px;
+}
+
+.bag-td {
+    border-bottom: 1px solid black !important; /*overides bootstrap class*/
+}
+
 /*-------- Media Queries */
 @media (min-width: 1200px) {
     .container {
