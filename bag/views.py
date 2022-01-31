@@ -7,7 +7,13 @@ from products.models import Brand
 def view_bag(request):
     """A view to return the index page"""
 
-    return render(request, 'bag/bag.html')
+    brands = Brand.objects.all()
+
+    context = {
+        'brands': brands,
+    }
+
+    return render(request, 'bag/bag.html', context)
 
 def add_to_bag(request, item_id):
     """Add a quantity of specified product to the bag"""
@@ -22,5 +28,5 @@ def add_to_bag(request, item_id):
         bag[item_id] = quantity
 
     request.session['bag'] = bag
-    print(request.session['bag'])
+    
     return redirect(redirect_url)
