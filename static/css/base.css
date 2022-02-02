@@ -95,6 +95,10 @@ img {
     font-size: 26px;
 }
 
+.product-row {
+    min-width: 100%;
+}
+
 @media (min-width: 576px) {
     .product-img {
         height: 375px;
