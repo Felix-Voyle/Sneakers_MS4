@@ -1,5 +1,6 @@
 html {
     height: 100%;
+    background-color: #f8f8f8;
 }
 
 body {
@@ -15,8 +16,11 @@ body {
     top: 0;
     left: 0;
     position: fixed;
-    background: white;
     z-index: -1;
+}
+
+.container-fluid, .overlay {
+    background-color: #f8f8f8;
 }
 
 /* from Bulma */
@@ -97,6 +101,27 @@ img {
 
 .product-row {
     min-width: 100%;
+}
+
+.product-card, .upcoming-card {
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.product-card {
+    background-color: #404345;
+}
+
+.upcoming-card {
+    background-color: coral;
+}
+
+.product-name-card, .upcoming-name-card {
+    color: whitesmoke;
+}
+
+.card-footer:last-child, .card-img-top {
+    border-radius: 5px;
 }
 
 @media (min-width: 576px) {

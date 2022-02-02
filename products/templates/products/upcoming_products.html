@@ -24,7 +24,7 @@
                 <div class="row">
                     {% for product in products %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                        <div class="card h-100 border-0">
+                        <div class="card h-100 border-0 upcoming-card">
                             {% if product.image %}
                             <a href="{% url 'product_detail' product.id %}">
                                 <img class="card-img-top img-fluid product-img" src="{{ product.image.url }}"
@@ -38,17 +38,17 @@
                             {% endif %}
                             <div class="card-body pb-0">
                                 <a href="{% url 'product_detail' product.id %}"></a>
-                                    <p class="mb-0 text-center">{{ product.name }}</p>
+                                    <p class="mb-0 text-center upcoming-name-card">{{ product.name }}</p>
                                 </a>
                                 {% if product.brand %}
-                                <p class="small mt-1 mb-0 text-center">
+                                <p class="small mt-1 mb-2 text-center">
                                     <a href="{% url 'products' %}?brand={{ product.brand.name }}" class="text-muted">
                                         {{ product.brand.friendly_name }}
                                     </a>
                                 </p>
                                 {% endif %}
                             </div>
-                            <div class="card-footer bg-white pt-0 border-0 text-left">
+                            <div class="card-footer bg-white pt-0 border-0">
                                 <div class="row">
                                     <div class="col">
                                         <p class="lead mb-0 text-left font-weight-bold text-center">{{ product.release_date }}</p>
