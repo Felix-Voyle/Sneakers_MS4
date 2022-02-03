@@ -149,6 +149,10 @@ img {
     border-bottom: 1px solid black !important; /*overides bootstrap class*/
 }
 
+.bag-qty {
+    width: 110px;
+}
+
 /*-------- Media Queries */
 @media (min-width: 1200px) {
     .container {
