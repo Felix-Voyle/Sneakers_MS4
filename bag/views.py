@@ -12,7 +12,6 @@ def view_bag(request):
     context = {
         'brands': brands,
     }
-    bag = request.session.get('bag', {})
 
     return render(request, 'bag/bag.html', context)
 
