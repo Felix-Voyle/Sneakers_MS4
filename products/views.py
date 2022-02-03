@@ -93,3 +93,17 @@ def upcoming_products(request):
     }
 
     return render(request, 'products/upcoming_products.html', context)
+
+
+def upcoming_product_detail(request, product_id):
+    """A view to show product details of individual product"""
+
+    product = get_object_or_404(Product, pk=product_id)
+    brands = Brand.objects.all()
+
+    context = {
+        'product': product,
+        'brands': brands,
+    }
+
+    return render(request, 'products/upcoming_product_detail.html', context)
