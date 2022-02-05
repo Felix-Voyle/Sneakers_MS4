@@ -153,6 +153,15 @@ img {
     width: 110px;
 }
 
+.update-item, .remove-item {
+    cursor: pointer;
+}
+
+.remove-item {
+    position: relative;
+    top: 12rem;
+}
+
 /*-------- Media Queries */
 @media (min-width: 1200px) {
     .container {
