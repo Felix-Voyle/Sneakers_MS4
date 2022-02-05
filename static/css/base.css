@@ -179,6 +179,12 @@ img {
     height: 2px;
 }
 
+.bag-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 /*-------- Media Queries */
 @media (min-width: 1200px) {
     .container {
