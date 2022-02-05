@@ -1,8 +1,9 @@
+from datetime import datetime
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from .models import Product, Brand
-from datetime import datetime, timedelta
+
 
 # Create your views here.
 
@@ -35,7 +36,8 @@ def shop_products(request):
 
         if 'brand' in request.GET:
             search_brand = request.GET['brand']
-            products = products.filter(release_date__lte=date_today, brand__name__contains=search_brand)
+            products = products.filter(
+                release_date__lte=date_today, brand__name__contains=search_brand)
             search_brand = Brand.objects.filter(name__in=search_brand)
 
         if 'q' in request.GET:
