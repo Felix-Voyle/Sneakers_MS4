@@ -1,6 +1,6 @@
 /*
 main stripe payment flow comes from here:
-https://stripe.com/docs/payments/quickstart
+https://stripe.com/docs/js
 */
 
 
@@ -27,3 +27,35 @@ var style = {
 };
 var card = elements.create('card', {style: style});
 card.mount('#card-element');
+
+card.on('change', function(event) {
+    var displayError = document.getElementById('card-errors');
+    if (event.error) {
+      displayError.textContent = event.error.message;
+    } else {
+      displayError.textContent = '';
+    }
+  });
+
+var form = document.getElementById('payment-form');
+
+form.addEventListener('submit', function(ev) {
+    ev.preventDefault();
+    card.update({'disabled': true});
+    $('#submit-button').attr('disabled', true)
+    stripe.confirmCardPayment(clientSecret, {
+    payment_method: {
+      card: card,
+    },
+  }).then(function(result) {
+      if (result.error) {
+          displayError.textContent = result.error.message;
+          card.update({'disabled': false});
+          $('#submit-button').attr('disabled', false)
+      } else {
+        if (result.paymentIntent.status === 'succeeded') {
+            form.submit();
+        }
+      }
+  });
+});
