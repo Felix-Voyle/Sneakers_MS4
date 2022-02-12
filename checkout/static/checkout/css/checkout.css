@@ -40,6 +40,16 @@
     font: white;
 }
 
+select,
+select option {
+  color: black;
+}
+
+select:invalid,
+select option[value=""] {
+  color: gray !important;
+}
+
 /*-----loading overlay---*/
 
 #loading-overlay {
