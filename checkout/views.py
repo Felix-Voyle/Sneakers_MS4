@@ -1,15 +1,16 @@
+import json
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
-from .forms import OrderForm
-from .models import Order, OrderLineItem
+import stripe
+
 from products.models import Product
 from bag.contexts import bag_contents
+from .forms import OrderForm
+from .models import Order, OrderLineItem
 
-import stripe
-import json
 
 
 @require_POST
@@ -23,8 +24,10 @@ def cache_checkout_data(request):
             'save_info': request.POST.get('save_info'),
             'username': request.user,
         })
+        print(stripe.PaymentIntent.retrieve(pid))
         return HttpResponse(status=200)
     except Exception as ex:
+        print(ex)
         messages.error(request, 'Sorry, your payment cannot be \
             processed right now. Please try again later.')
         return HttpResponse(content=ex, status=400)
@@ -38,6 +41,7 @@ def checkout(request):
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
+        print(request.POST)
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -52,7 +56,11 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save()
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_bag = json.dumps(bag)
+            order.save()
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
@@ -75,12 +83,12 @@ def checkout(request):
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your bag wasn't found in our database."
-                        "contatc us for assistance")
+                        "contact us for assistance")
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
 
-            request.session['save-info'] = 'save-info' in request.POST
+            request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, "There was an error with your form \
@@ -102,12 +110,17 @@ def checkout(request):
         )
 
         order_form = OrderForm()
-        template = 'checkout/checkout.html'
-        context = {
-            'order_form': order_form,
-            'stripe_public_key': stripe_public_key,
-            'client_secret': intent.client_secret,
-        }
+
+    if not stripe_public_key:
+        messages.warning(request, 'Stripe public key is missing. \
+            Did you forget to set it in your enviroment?')
+
+    template = 'checkout/checkout.html'
+    context = {
+        'order_form': order_form,
+        'stripe_public_key': stripe_public_key,
+        'client_secret': intent.client_secret,
+    }
 
     return render(request, template, context)
 
@@ -121,10 +134,10 @@ def checkout_success(request, order_number):
     messages.success(request, f'Ordr successfully processed \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
-    
+
     if 'bag' in request.session:
         del request.session['bag']
-    
+
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
