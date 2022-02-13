@@ -124,6 +124,11 @@ img {
     border-radius: 5px;
 }
 
+.edit-btn {
+    border-right: 1px solid black;
+    padding-right: 4px;
+}
+
 @media (min-width: 576px) {
     .product-img {
         height: 375px;

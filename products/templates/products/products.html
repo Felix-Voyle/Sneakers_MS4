@@ -48,7 +48,7 @@
                                 </p>
                                 {% endif %}
                             </div>
-                            <div class="card-footer bg-white pt-0 border-0 text-left product-card-footer">
+                            <div class="card-footer bg-white text-left product-card-footer">
                                 <div class="row">
                                     <div class="col">
                                         <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
@@ -57,6 +57,12 @@
                                             5</small>
                                         {% else %}
                                         <small class="text-muted">No Rating</small>
+                                        {% endif %}
+                                        {% if request.user.is_superuser %}
+                                        <div class="text-right">
+                                            <a href="{% url 'edit_product' product.id %}" class="edit-btn">Edit</a>
+                                            <a href="{% url 'delete_product' product.id %}" class="text-danger">Delete</a>
+                                        </div>
                                         {% endif %}
                                     </div>
                                 </div>
