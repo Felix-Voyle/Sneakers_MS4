@@ -27,10 +27,8 @@ def cache_checkout_data(request):
             'save_info': request.POST.get('save_info'),
             'username': request.user,
         })
-        print(stripe.PaymentIntent.retrieve(pid))
         return HttpResponse(status=200)
     except Exception as ex:
-        print(ex)
         messages.error(request, 'Sorry, your payment cannot be \
             processed right now. Please try again later.')
         return HttpResponse(content=ex, status=400)
@@ -44,7 +42,6 @@ def checkout(request):
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
-        print(request.POST)
 
         form_data = {
             'full_name': request.POST['full_name'],
