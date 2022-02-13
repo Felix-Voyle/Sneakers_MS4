@@ -9,18 +9,18 @@ from checkout.models import Order
 
 
 @login_required
-def view_profile(request):
+def profile(request):
     """Display the user's profile"""
-    profile = get_object_or_404(UserProfile, user=request.user)
+    user_profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == "POST":
-        form = UserProfileForm(request.POST, instance=profile)
+        form = UserProfileForm(request.POST, instance=user_profile)
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated succesfully')
 
-    form = UserProfileForm(instance=profile)
-    orders = profile.orders.all()
+    form = UserProfileForm(instance=user_profile)
+    orders = user_profile.orders.all()
 
     template = 'profiles/profile.html'
     context = {
