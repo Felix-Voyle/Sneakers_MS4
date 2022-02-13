@@ -1,12 +1,12 @@
 html {
     height: 100%;
-    background-color: #f8f8f8;
 }
 
 body {
     color: #555;
     font-family: 'Rubik', sans-serif;
     font-weight: 300;
+    background-color: #f8f8f8;
 }
 
 .container-fluid, .overlay {
@@ -29,12 +29,6 @@ body {
 
 .main-logo-link {
     width: fit-content;
-}
-
-.shop-now-button {
-    background: black;
-    color: white;
-    min-width: 260px;
 }
 
 .btn-black {
