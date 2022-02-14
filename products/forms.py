@@ -1,6 +1,10 @@
 from django import forms
 from .models import Product, Brand
 
+class DateInput(forms.DateInput):
+    """generates date input field"""
+    input_type = 'date'
+
 
 class ProductForm(forms.ModelForm):
     """Product Form"""
@@ -8,6 +12,9 @@ class ProductForm(forms.ModelForm):
         """generates all product fields"""
         model = Product
         fields = '__all__'
+        widgets = {
+            'release_date': DateInput(),
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
