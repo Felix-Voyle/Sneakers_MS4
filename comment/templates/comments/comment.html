@@ -11,9 +11,17 @@
 
 {% block content %}
     <div class="overlay"></div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <hr>
+            <h2 class="logo-font mb-4">{{ product.name }}</h2>
+            <h5>Add a comment</h5>
+            <hr>
+        </div>
+    </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 col-md-6 col-lg-4 offset-lg-1">
+            <div class="col-12 col-md-6">
                 <div class="image-container my-5 text-center">
                     {% if product.image %}
                     <a href="{{ product.image.url }}" target="_blank">
@@ -27,9 +35,16 @@
                 </div>
                 <p class="mb-0 product-detail-name"><strong>{{ product.name }}</strong></p>
             </div>
-            <div class="col-12 col-md-6 col-lg-7">
-               
-            </div>
+                <div class="col-12 col-md-6">
+                    <form action="#" method="POST" class="form mt-5 mr-lg-5">
+                        {% csrf_token %}
+                        {{ form | crispy }}
+                        <div class="text-right">
+                            <a href="#" class="btn btn-outline-black rounded-0">Cancel</a>
+                            <button type="submit" class="btn btn-outline-black rounded-0">Submit</button>
+                        </div>
+                    </form>
+                </div>
         </div>
     </div>
 

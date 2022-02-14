@@ -8,7 +8,7 @@ class Comment(models.Model):
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.SET_NULL,
                                      null=True, blank=True, related_name='user')
-    comment = models.CharField(max_length=400, null=False, blank=False, )
+    comment = models.CharField(max_length=400, null=False, blank=False)
 
     def __str__(self):
         return self.name
