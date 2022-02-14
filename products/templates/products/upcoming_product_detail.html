@@ -54,7 +54,6 @@
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -67,7 +66,7 @@
     </div>
     <div class="row">
         <div class="offset-1 col-10 offset-lg-2 col-lg-8">
-            <a  href="">Leave a comment</a>
+            <a  href="{% url 'comment' product.id %}">Leave a comment</a>
         </div>
     </div>
     <div class="row">
