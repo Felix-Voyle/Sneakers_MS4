@@ -103,10 +103,12 @@ def upcoming_product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     brands = Brand.objects.all()
+    comments = Comment.objects.filter(product=product)
 
     context = {
         'product': product,
         'brands': brands,
+        'comments': comments,
     }
 
     return render(request, 'products/upcoming_product_detail.html', context)
