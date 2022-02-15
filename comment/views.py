@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from products.models import Product
+from .models import Comment
 
 from .forms import CommentForm
 
@@ -25,6 +26,33 @@ def comment(request, product_id):
                  is valid.')
 
     context = {
+        'product': product,
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+@login_required
+def edit(request, comment_id):
+    """Add a product to the store"""
+    comment = get_object_or_404(Comment, id=comment_id)
+    product = get_object_or_404(Product, name=comment.product)
+    data = {'product': product, 'user': request.user, 'comment': comment}
+    form = CommentForm(initial=data)
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'successfully edited comment')
+            return redirect(reverse('upcoming_product_detail', args=[product.id]))
+        else:
+            messages.error(request, 'Failed to edit comment, Please ensure form\
+                 is valid.')
+
+    template = 'comments/edit_comment.html'
+    context = {
+        'comment': comment,
         'product': product,
         'form': form,
     }

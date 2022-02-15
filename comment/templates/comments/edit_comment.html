@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <hr>
+            <h2 class="logo-font mb-4">{{ product.name }}</h2>
+            <h5>Add a comment</h5>
+            <hr>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="image-container my-5 text-center">
+                    {% if product.image %}
+                    <a href="{{ product.image.url }}" target="_blank">
+                        <img class="card-img-top img-fluid product-detail-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    </a>
+                    {% else %}
+                    <a href="">
+                        <img class="card-img-top img-fluid product-detail-img" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    </a>
+                    {% endif %}
+                </div>
+                <p class="mb-0 product-detail-name"><strong>{{ product.name }}</strong></p>
+            </div>
+                <div class="col-12 col-md-6">
+                    <form action="{% url 'edit' comment.id %}" method="POST" class="form mt-5 mr-lg-5">
+                        {% csrf_token %}
+                        {{ form | crispy }}
+                        <div class="text-right">
+                            <a href="#" class="btn btn-outline-black rounded-0">Cancel</a>
+                            <button type="submit" class="btn btn-outline-black rounded-0">Submit</button>
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </div>
+
+{% endblock %}

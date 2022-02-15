@@ -73,6 +73,12 @@
             <div class="card">
                 <div class="card-header">
                   {{ comment.user }}
+                  {% if user == comment.user %}
+                  <div class="text-right">
+                    <a href="{% url 'edit' comment.id %}" class="edit-btn">Edit</a>
+                    <a href="#" class="delete-btn text-danger">Delete</a>
+                  </div>
+                  {% endif %}
                 </div>
                 <div class="card-body">
                   <p class="card-text">{{ comment.comment }}</p>
