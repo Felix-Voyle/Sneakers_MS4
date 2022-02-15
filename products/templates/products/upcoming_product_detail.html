@@ -60,27 +60,27 @@
     </div>
 
     <div class="row">
-        <div class="col mt-3 mb-1 text-center">
-            <h3>Comments</h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="offset-1 col-10 offset-lg-2 col-lg-8">
+        <span class="offset-2 col-2 mt-3 mb-1 text-left">
             <a  href="{% url 'comment' product.id %}">Leave a comment</a>
-        </div>
+        </span>
+        <span class="col-4 mt-3 mb-1 text-center">
+            <h3>Comments</h3>
+        </span>
     </div>
+    {% for comment in comments %}
     <div class="row">
         <div class="offset-1 col-10 offset-lg-2 col-lg-8 mb-2">
             <div class="card">
                 <div class="card-header">
-                  Name
+                  {{ comment.user }}
                 </div>
                 <div class="card-body">
-                  <p class="card-text">comment</p>
+                  <p class="card-text">{{ comment.comment }}</p>
                 </div>
               </div>
         </div>
     </div>
+    {% endfor %}
 
 {% endblock %}
 
