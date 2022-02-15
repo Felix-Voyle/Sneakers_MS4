@@ -1,6 +1,7 @@
 from django import forms
-from django.forms import Textarea
+from django.forms import Textarea, HiddenInput
 from .models import Comment
+
 
 
 class CommentForm(forms.ModelForm):
@@ -8,7 +9,9 @@ class CommentForm(forms.ModelForm):
     class Meta:
         """Comment Fields"""
         model = Comment
-        fields = ('comment',)
+        fields = ('product', 'user', 'comment',)
         widgets = {
+            'product': HiddenInput(),
+            'user': HiddenInput(),
             'comment': Textarea(attrs={'cols': 80, 'rows': 20}),
         }
