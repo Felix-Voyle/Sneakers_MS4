@@ -49,6 +49,14 @@ body {
     color: white;
 }
 
+/*--header and nav bar--*/
+
+.brand-logo {
+    text-shadow: 4px 3px 5px black;
+    color: coral;
+    font-size: 50px;
+}
+
 /* --- general and carousel overlay */
 
 .overlay, .carousel-overlay {

@@ -1,6 +1,7 @@
 import json
 
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import render, redirect, reverse, \
+     get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -8,12 +9,11 @@ from django.conf import settings
 import stripe
 
 from products.models import Product
-from .forms import OrderForm
-from .models import Order, OrderLineItem
 from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
 from bag.contexts import bag_contents
-
+from .forms import OrderForm
+from .models import Order, OrderLineItem
 
 
 @require_POST
@@ -32,7 +32,6 @@ def cache_checkout_data(request):
         messages.error(request, 'Sorry, your payment cannot be \
             processed right now. Please try again later.')
         return HttpResponse(content=ex, status=400)
-
 
 
 def checkout(request):
@@ -82,14 +81,15 @@ def checkout(request):
                             order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database."
-                        "contact us for assistance")
+                        "One of the products in your bag wasn't found in our \
+                             database. contact us for assistance")
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse(
+                'checkout_success', args=[order.order_number]))
         else:
             messages.error(request, "There was an error with your form \
             Please check your information")
@@ -166,7 +166,6 @@ def checkout_success(request, order_number):
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
-
 
     messages.success(request, f'Ordr successfully processed \
         Your order number is {order_number}. A confirmation \
