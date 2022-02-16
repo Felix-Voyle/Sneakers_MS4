@@ -95,6 +95,44 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <span class="offset-2 col-2 mt-3 mb-1 text-left">
+            <a  href="{% url 'add_review' product.id %}">Leave a Review</a>
+        </span>
+        <span class="col-4 mt-3 mb-1 text-center">
+            <h3>Reviews</h3>
+        </span>
+    </div>
+    {% if reviews %}
+    {% for review in reviews %}
+    <div class="row">
+        <div class="offset-1 col-10 offset-lg-2 col-lg-8 mb-2">
+            <div class="card">
+                <div class="card-header">
+                  {{ review.user }}
+                  {% if user == review.user %}
+                  <div class="text-right">
+                    <a href="#" class="edit-btn">Edit</a>
+                    <a href="#" class="delete-btn text-danger">Delete</a>
+                  </div>
+                  {% endif %}
+                </div>
+                <div class="card-body">
+                  <p class="card-text">{{ review.review }}</p>
+                </div>
+              </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="offset-1 col-10 offset-lg-2 col-lg-8 mb-5">
+        <div class="text-center">
+            <h4>No reviews yet, be the first to leave one!</h4>
+        </div>
+    </div>
+    {% endif %}
+
 {% endblock %}
 
 {% block postloadjs %}

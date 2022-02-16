@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
 from comment.models import Comment
+from review.models import Review
 from .models import Product, Brand
 from .forms import ProductForm
 
@@ -68,6 +69,8 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     brands = Brand.objects.all()
+    reviews = Review.objects.filter(product=product)
+    user = request.user
 
     sizes = []
     for i in range(1, 13):
@@ -77,6 +80,8 @@ def product_detail(request, product_id):
         'product': product,
         'brands': brands,
         'sizes': sizes,
+        'reviews': reviews,
+        'user': user,
     }
 
     return render(request, 'products/product_detail.html', context)
