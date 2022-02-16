@@ -114,7 +114,7 @@
                   {% if user == review.user %}
                   <div class="text-right">
                     <a href="{% url 'edit_review' review.id %}" class="edit-btn">Edit</a>
-                    <a href="#" class="delete-btn text-danger">Delete</a>
+                    <a href="{% url 'delete_review' review.id %}" class="delete-btn text-danger">Delete</a>
                   </div>
                   {% endif %}
                 </div>

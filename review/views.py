@@ -75,3 +75,18 @@ def edit_review(request, review_id):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_review(request, review_id):
+    """Delete a product from the store"""
+    if not request.user:
+        messages.error(request, "Sorry you need to sign in to do that")
+        return redirect(reverse("home"))
+
+    review = get_object_or_404(Review, id=review_id)
+    product = get_object_or_404(Product, name=review.product)
+
+    review.delete()
+    messages.success(request, 'Review deleted')
+    return redirect(reverse('product_detail', args=[product.id]))
