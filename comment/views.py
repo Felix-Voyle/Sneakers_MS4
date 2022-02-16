@@ -8,7 +8,7 @@ from .models import Comment
 from .forms import CommentForm
 
 @login_required
-def comment(request, product_id):
+def add_comment(request, product_id):
     """Allows user to comment on upcoming product"""
     template = 'comments/comment.html'
     product = get_object_or_404(Product, pk=product_id)
@@ -58,3 +58,15 @@ def edit(request, comment_id):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_comment(request, comment_id):
+    """Delete a product from the store"""
+    comment = get_object_or_404(Comment, id=comment_id)
+    product = get_object_or_404(Product, name=comment.product)
+    print('hello')
+
+    comment.delete()
+    messages.success(request, 'Comment deleted')
+    return redirect(reverse('upcoming_product_detail', args=[product.id]))

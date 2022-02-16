@@ -61,12 +61,13 @@
 
     <div class="row">
         <span class="offset-2 col-2 mt-3 mb-1 text-left">
-            <a  href="{% url 'comment' product.id %}">Leave a comment</a>
+            <a  href="{% url 'add_comment' product.id %}">Leave a comment</a>
         </span>
         <span class="col-4 mt-3 mb-1 text-center">
             <h3>Comments</h3>
         </span>
     </div>
+    {% if comments %}
     {% for comment in comments %}
     <div class="row">
         <div class="offset-1 col-10 offset-lg-2 col-lg-8 mb-2">
@@ -76,7 +77,7 @@
                   {% if user == comment.user %}
                   <div class="text-right">
                     <a href="{% url 'edit' comment.id %}" class="edit-btn">Edit</a>
-                    <a href="#" class="delete-btn text-danger">Delete</a>
+                    <a href="{% url 'delete_comment' comment.id %}" class="delete-btn text-danger">Delete</a>
                   </div>
                   {% endif %}
                 </div>
@@ -87,6 +88,13 @@
         </div>
     </div>
     {% endfor %}
+    {% else %}
+    <div class="offset-1 col-10 offset-lg-2 col-lg-8 mb-5">
+        <div class="text-center">
+            <h4>No comments yet, be the first to leave one!</h4>
+        </div>
+    </div>
+    {% endif %}
 
 {% endblock %}
 
