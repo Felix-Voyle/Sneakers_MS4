@@ -7,9 +7,14 @@ from .models import Comment
 
 from .forms import CommentForm
 
+
 @login_required
 def add_comment(request, product_id):
     """Allows user to comment on upcoming product"""
+    if not request.user:
+        messages.error(request, "Sorry you need to sign in to do that")
+        return redirect(reverse("home"))
+
     template = 'comments/comment.html'
     product = get_object_or_404(Product, pk=product_id)
     data = {'product': product, 'user': request.user, }
@@ -20,7 +25,8 @@ def add_comment(request, product_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'successfully added comment')
-            return redirect(reverse('upcoming_product_detail', args=[product.id]))
+            return redirect(reverse(
+                'upcoming_product_detail', args=[product.id]))
         else:
             messages.error(request, 'Failed to add comment, Please ensure form\
                  is valid.')
@@ -32,9 +38,14 @@ def add_comment(request, product_id):
 
     return render(request, template, context)
 
+
 @login_required
 def edit(request, comment_id):
     """Add a product to the store"""
+    if not request.user:
+        messages.error(request, "Sorry you need to sign in to do that")
+        return redirect(reverse("home"))
+
     comment = get_object_or_404(Comment, id=comment_id)
     product = get_object_or_404(Product, name=comment.product)
     data = {'product': product, 'user': request.user, 'comment': comment}
@@ -45,7 +56,8 @@ def edit(request, comment_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'successfully edited comment')
-            return redirect(reverse('upcoming_product_detail', args=[product.id]))
+            return redirect(reverse(
+                'upcoming_product_detail', args=[product.id]))
         else:
             messages.error(request, 'Failed to edit comment, Please ensure form\
                  is valid.')
@@ -63,6 +75,10 @@ def edit(request, comment_id):
 @login_required
 def delete_comment(request, comment_id):
     """Delete a product from the store"""
+    if not request.user:
+        messages.error(request, "Sorry you need to sign in to do that")
+        return redirect(reverse("home"))
+
     comment = get_object_or_404(Comment, id=comment_id)
     product = get_object_or_404(Product, name=comment.product)
     print('hello')
