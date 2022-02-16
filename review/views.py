@@ -17,12 +17,16 @@ def add_review(request, product_id):
 
     template = 'reviews/review.html'
     product = get_object_or_404(Product, pk=product_id)
+    reviewed_already = Review.objects.filter(product=product)
     data = {'product': product, 'user': request.user, }
     form = ReviewForm(initial=data, instance=product)
-    user = request.user
 
     if request.method == 'POST':
         form = ReviewForm(request.POST)
+        if reviewed_already:
+            messages.error(request, 'You have already Reviewed this product! You can edit your existing review')
+            return redirect(reverse(
+                'product_detail', args=[product.id]))
         if form.is_valid():
             form.save()
             messages.success(request, 'successfully added review')
