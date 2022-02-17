@@ -42,3 +42,51 @@ def add_review(request, product_id):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def edit_review(request, review_id):
+    """Add a product to the store"""
+    if not request.user:
+        messages.error(request, "Sorry you need to sign in to do that")
+        return redirect(reverse("home"))
+
+    review = get_object_or_404(Review, id=review_id)
+    product = get_object_or_404(Product, name=review.product)
+    data = {'product': product, 'user': request.user, 'rating': review.rating, 'review': review}
+    form = ReviewForm(initial=data)
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, instance=review)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'successfully edited review')
+            return redirect(reverse(
+                'product_detail', args=[product.id]))
+        else:
+            messages.error(request, 'Failed to edit comment, Please ensure form\
+                 is valid.')
+
+    template = 'reviews/edit_review.html'
+    context = {
+        'review': review,
+        'product': product,
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def delete_review(request, review_id):
+    """Delete a product from the store"""
+    if not request.user:
+        messages.error(request, "Sorry you need to sign in to do that")
+        return redirect(reverse("home"))
+
+    review = get_object_or_404(Review, id=review_id)
+    product = get_object_or_404(Product, name=review.product)
+
+    review.delete()
+    messages.success(request, 'Review deleted')
+    return redirect(reverse('product_detail', args=[product.id]))
