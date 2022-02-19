@@ -7,7 +7,7 @@ from django.db.models import Q
 from comment.models import Comment
 from review.models import Review
 from .models import Product, Brand
-from .forms import ProductForm
+from .forms import ProductForm, BrandForm
 
 
 def shop_products(request):
@@ -141,6 +141,32 @@ def add_product(request):
 
     form = ProductForm()
     template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def add_brand(request):
+    """Add a product to the store"""
+    if not request.user.is_superuser:
+        messages.error(request, "Sorry you don't have permission for that")
+        return redirect(reverse("home"))
+
+    if request.method == 'POST':
+        form = BrandForm(request.POST)
+        if form.is_valid():
+            brand = form.save()
+            messages.success(request, 'successfully added brand')
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, 'Failed to add brand, Please ensure form\
+                 is valid.')
+
+    form = BrandForm()
+    template = 'products/add_brand.html'
     context = {
         'form': form,
     }
