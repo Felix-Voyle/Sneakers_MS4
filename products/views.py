@@ -92,7 +92,8 @@ def upcoming_products(request):
 
     now = datetime.now()
     date_today = now.date()
-    products = Product.objects.filter(release_date__gt=date_today)
+    products = Product.objects.filter(
+        release_date__gt=date_today).order_by('release_date')
     brands = Brand.objects.all()
 
     context = {

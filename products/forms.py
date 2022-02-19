@@ -9,9 +9,10 @@ class DateInput(forms.DateInput):
 class ProductForm(forms.ModelForm):
     """Product Form"""
     class Meta:
-        """generates all product fields"""
+        """generates product fields"""
         model = Product
         fields = '__all__'
+        exclude = ('rating',)
         widgets = {
             'release_date': DateInput(),
         }
@@ -24,3 +25,11 @@ class ProductForm(forms.ModelForm):
         self.fields['brand'].choices = friendly_names
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
+
+
+class BrandForm(forms.ModelForm):
+    """Brand Form"""
+    class Meta:
+        """generate all brand fields"""
+        model = Brand
+        fields = '__all__'
