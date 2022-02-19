@@ -27,6 +27,11 @@ body {
     font-family: 'Oswald', sans-serif;
 }
 
+.mobile-bag-icon {
+    position: relative;
+    top: 10px
+}
+
 .main-logo-link {
     width: fit-content;
 }
@@ -277,7 +282,7 @@ img {
 /*-------- Media Queries */
 @media (max-width: 426px) {
     .header-container {
-        margin-top: 125px;
+        margin-top: 95px;
     }
 }
 
