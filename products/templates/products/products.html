@@ -51,7 +51,7 @@
                             <div class="card-footer bg-white text-left product-card-footer">
                                 <div class="row">
                                     <div class="col">
-                                        <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                        <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
                                         {% if product.rating %}
                                         <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} /
                                             5</small>
@@ -89,6 +89,16 @@
                         <hr>
                     </div>
                     {% endif %}
+                    {% empty %}
+                    <div class="col-12 text-center  mb-5">
+                        <h4>No products matched your search..</h4>
+                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="text-uppercase">All Products</span>
+                        </a>
+                    </div>
                     {% endfor %}
                 </div>
             </div>
