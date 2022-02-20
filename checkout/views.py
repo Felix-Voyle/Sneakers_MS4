@@ -8,7 +8,7 @@ from django.conf import settings
 
 import stripe
 
-from products.models import Product
+from products.models import Product, Brand
 from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
 from bag.contexts import bag_contents
@@ -38,6 +38,7 @@ def checkout(request):
     """checkout"""
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
+    brands = Brand.objects.all()
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
@@ -134,6 +135,7 @@ def checkout(request):
 
     template = 'checkout/checkout.html'
     context = {
+        'brands': brands,
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
@@ -147,6 +149,7 @@ def checkout_success(request, order_number):
 
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+    brands = Brand.objects.all()
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
@@ -177,6 +180,7 @@ def checkout_success(request, order_number):
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
+        'brands': brands,
     }
 
     return render(request, template, context)

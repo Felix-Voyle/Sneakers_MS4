@@ -20,7 +20,7 @@
 
     <div class="overlay"></div>
     <div class="container">
-        <div class="row">
+        <div class="row mt-3">
             <div class="col">
                 <hr>
                 <h2 class="logo-font mb-4">Checkout</h2>
@@ -43,7 +43,7 @@
                         <div class="col-2 mb-1">
                             <a href="{% url 'product_detail' item.product.id %}">
                                 {% if item.product.image %}
-                                    <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                    <img class="w-100 checkout-img" src="{{ item.product.image.url }}" alt="{{ product.name }}">
                                 {% else %}
                                     <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                 {% endif %}
@@ -74,7 +74,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6">
-                <p class="text-muted">Please fill out the fomr below to complete your order</p>
+                <p class="text-muted text-center">Please fill out the form below to complete your order</p>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5"></fieldset>

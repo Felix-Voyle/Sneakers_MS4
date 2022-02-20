@@ -13,6 +13,7 @@ body {
     background-color: #f8f8f8;
 }
 
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -56,13 +57,65 @@ body {
 
 /*--header and nav bar--*/
 
+.topnav, .main-nav-bar {
+    background-color: #e9e9e9;
+}
+
+.main-nav-bar {
+    box-shadow: 5px 5px 5px 0px #00000073;
+}
+
 .brand-logo {
     text-shadow: 4px 3px 5px black;
-    color: coral;
+    color: #FF875C;
     font-size: 50px;
 }
 
+.navbar-light .navbar-nav .nav-link {
+    color: #404345;
+    text-shadow: 1px 1px 1px #FF875C;
+}
+
+.navbar-light .navbar-nav .nav-link[aria-expanded="true"] {
+    color: #FF875C;
+    text-shadow: 2px 1px 1px #404345;
+    text-decoration: underline;
+}
+
+.navbar-toggler {
+    background-color: #575555
+}
+
+.navbar-toggler:focus {
+    outline: 5px auto #FF875C;
+}
+
+.bag-total-active, .bag-total-active {
+    text-shadow: 1px 1px #FF875C;
+}
+
+.user-icon {
+    text-shadow: 1px 1px #FF875C;
+}
+
+.bag-topnav, .user {
+    color: #222;
+}
+
+.search-bar {
+    box-shadow: 5px 5px 8px 0px #00000099;
+}
+
+.bag-active {
+    color: black;
+}
+
 /* --- general and carousel overlay */
+
+.product-img-overlay {
+    width: 100px;
+    background-color: black;
+}
 
 .overlay, .carousel-overlay {
     height: 100%;
@@ -115,7 +168,7 @@ img {
 }
 
 .shop-now-button {
-    background-color: coral;
+    background-color: #FF875C;
 }
 
 .shop-now-button, .callout {
@@ -139,8 +192,9 @@ img {
 }
 
 .product-card, .upcoming-card {
-    padding: 5px;
+    padding: 8px;
     border-radius: 8px;
+    box-shadow: 4px 4px 3px black;
 }
 
 .product-card {
@@ -148,7 +202,7 @@ img {
 }
 
 .upcoming-card {
-    background-color: coral;
+    background-color: #FF875C;
 }
 
 .product-name-card, .upcoming-name-card {
@@ -181,8 +235,10 @@ img {
 /* ------ bag ----- */
 
 .bag-img {
-    height: 300px;
-    width: 200px;
+    height: 200px;
+    width: 125px;
+    min-height: 60px;
+    min-width: 40px;
 }
 
 .bag-td {
@@ -199,7 +255,7 @@ img {
 
 .remove-item {
     position: relative;
-    top: 12rem;
+    top: 6rem;
 }
 
 /* --- Toasts --- */
@@ -223,6 +279,13 @@ img {
     height: 100px;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+/* checkout */
+
+.checkout-img {
+    min-height: 60px;
+    min-width: 40px;
 }
 
 /* Allauth */
