@@ -66,19 +66,20 @@ body {
 }
 
 .brand-logo {
-    text-shadow: 4px 3px 5px black;
+    text-shadow: 4px 3px 2px #81000f;
     color: #FF875C;
     font-size: 50px;
 }
 
 .navbar-light .navbar-nav .nav-link {
     color: #404345;
-    text-shadow: 1px 1px 1px #FF875C;
+    text-shadow: 1px 1px 1px #ff875cba;
+    font-size: 18px;
 }
 
 .navbar-light .navbar-nav .nav-link[aria-expanded="true"] {
     color: #FF875C;
-    text-shadow: 2px 1px 1px #404345;
+    text-shadow: 2px 1px 1px #81000f;
     text-decoration: underline;
 }
 
@@ -178,6 +179,10 @@ img {
 .callout {
     bottom: 4rem;
     color: whitesmoke;
+}
+
+.title-shadow {
+    text-shadow: 2px 1px 2px black;
 }
 
 /* ----Products------*/

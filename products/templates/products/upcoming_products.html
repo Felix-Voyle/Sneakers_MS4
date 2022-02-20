@@ -14,7 +14,7 @@
 <div class="container-fluid">
     <div class="row mt-3">
         <div class="col text-center">
-            <h2 class="logo-font mt-3">Upcoming</h2>
+            <h2 class="logo-font mt-3 title-shadow">Upcoming</h2>
             <hr class="w-50 mb-3">
         </div>
     </div>
@@ -38,7 +38,7 @@
                             {% endif %}
                             <div class="card-body pb-0">
                                 <a href="{% url 'upcoming_product_detail' product.id %}"></a>
-                                    <p class="mb-0 text-center upcoming-name-card">{{ product.name }}</p>
+                                    <p class="mb-0 text-center upcoming-name-card logo-font">{{ product.name }}</p>
                                 </a>
                                 {% if product.brand %}
                                 <p class="small mt-1 mb-2 text-center">
