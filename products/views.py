@@ -125,6 +125,7 @@ def upcoming_product_detail(request, product_id):
 @login_required
 def add_product(request):
     """Add a product to the store"""
+    brands = Brand.objects.all()
     if not request.user.is_superuser:
         messages.error(request, "Sorry you don't have permission for that")
         return redirect(reverse("home"))
@@ -143,6 +144,7 @@ def add_product(request):
     template = 'products/add_product.html'
     context = {
         'form': form,
+        'brands': brands,
     }
 
     return render(request, template, context)
@@ -151,6 +153,7 @@ def add_product(request):
 @login_required
 def add_brand(request):
     """Add a product to the store"""
+    brands = Brand.objects.all()
     if not request.user.is_superuser:
         messages.error(request, "Sorry you don't have permission for that")
         return redirect(reverse("home"))
@@ -169,6 +172,7 @@ def add_brand(request):
     template = 'products/add_brand.html'
     context = {
         'form': form,
+        'brands': brands,
     }
 
     return render(request, template, context)
@@ -177,6 +181,7 @@ def add_brand(request):
 @login_required
 def edit_product(request, product_id):
     """Add a product to the store"""
+    brands = Brand.objects.all()
     if not request.user.is_superuser:
         messages.error(request, "Sorry you don't have permission for that")
         return redirect(reverse("home"))
@@ -200,6 +205,7 @@ def edit_product(request, product_id):
     context = {
         'form': form,
         'product': product,
+        'brands': brands,
     }
 
     return render(request, template, context)

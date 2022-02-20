@@ -23,10 +23,10 @@
   </li>
 
   <li class="list-inline-item">
-      <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none mobile-bag-icon" href="{% url 'view_bag' %}">
+      <a class="{% if grand_total %}bag-active font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none mobile-bag-icon" href="{% url 'view_bag' %}">
           <div class="text-center">
               <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-              <p class="my-0">
+              <p class="my-0 {% if grand_total %}bag-total-active{% endif %}">
                   {% if grand_total %}
                       £{{ grand_total|floatformat:2 }}
                   {% else %}
