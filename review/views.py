@@ -8,6 +8,16 @@ from .models import Review
 from .forms import ReviewForm
 
 
+def update_product_rating(product):
+    """updates products rating"""
+    ratings = Review.objects.filter(product=product).values_list('rating', flat=True)
+    quantity = len(ratings)
+    total = sum(ratings)
+    average_rating = round(total / quantity, 2)
+    product.rating = average_rating
+    product.save()
+
+
 @login_required
 def add_review(request, product_id):
     """Allows user to comment on upcoming product"""
@@ -17,18 +27,21 @@ def add_review(request, product_id):
 
     template = 'reviews/review.html'
     product = get_object_or_404(Product, pk=product_id)
-    reviewed_already = Review.objects.filter(product=product)
+    review = Review.objects.filter(product=product)
+    reviewed_already = Review.objects.filter(user=request.user, product=product)
     data = {'product': product, 'user': request.user, }
     form = ReviewForm(initial=data, instance=product)
 
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if reviewed_already:
-            messages.error(request, 'You have already Reviewed this product! You can edit your existing review')
+            messages.error(request, 'You have already Reviewed this product!'
+                           'You can edit your existing review')
             return redirect(reverse(
                 'product_detail', args=[product.id]))
         if form.is_valid():
             form.save()
+            update_product_rating(product)
             messages.success(request, 'successfully added review')
             return redirect(reverse(
                 'product_detail', args=[product.id]))
@@ -60,6 +73,7 @@ def edit_review(request, review_id):
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
             form.save()
+            update_product_rating(product)
             messages.success(request, 'successfully edited review')
             return redirect(reverse(
                 'product_detail', args=[product.id]))
@@ -88,5 +102,6 @@ def delete_review(request, review_id):
     product = get_object_or_404(Product, name=review.product)
 
     review.delete()
+    update_product_rating(product)
     messages.success(request, 'Review deleted')
     return redirect(reverse('product_detail', args=[product.id]))
