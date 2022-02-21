@@ -187,6 +187,20 @@ img {
 
 /* ----Products------*/
 
+.product-size {
+    max-width: 210px;
+}
+
+.product-qty {
+    max-width: 110px;
+}
+
+.product-detail-img {
+    max-height: 500px;
+    max-width: 400px;
+    box-shadow: 5px 5px 8px 0px black
+}
+
 .product-detail-name {
     font-family: 'Oswald', sans-serif;
     font-size: 26px;
