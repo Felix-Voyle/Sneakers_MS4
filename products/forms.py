@@ -1,4 +1,5 @@
 from django import forms
+from .widgets import CustomClearableFileInput
 from .models import Product, Brand
 
 class DateInput(forms.DateInput):
@@ -17,8 +18,12 @@ class ProductForm(forms.ModelForm):
             'release_date': DateInput(),
         }
 
+    image = forms.ImageField(label='Image', required=False,
+     widget=CustomClearableFileInput)
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.fields['release_date'].required = True
         brands = Brand.objects.all()
         friendly_names = [(b.id, b.get_friendly_name) for b in brands]
 
