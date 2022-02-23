@@ -37,6 +37,25 @@
             </div>
                 <div class="col-12 col-md-6">
                     <form action="{% url 'edit_review' review.id %}" method="POST" class="form mt-5 mr-lg-5">
+                        <div class="form-group col-3 star-col">
+                            <label class="text-left">Rating*</label>
+                            <div class="star-rating">
+                                <input type="radio" name="stars" id="star-a" value="5" required/>
+                                <label for="star-a"></label>
+                          
+                                <input type="radio" name="stars" id="star-b" value="4"/>
+                                <label for="star-b"></label>
+                            
+                                <input type="radio" name="stars" id="star-c" value="3"/>
+                                <label for="star-c"></label>
+                            
+                                <input type="radio" name="stars" id="star-d" value="2"/>
+                                <label for="star-d"></label>
+                            
+                                <input type="radio" name="stars" id="star-e" value="1"/>
+                                <label for="star-e"></label>
+                          </div>
+                        </div>
                         {% csrf_token %}
                         {{ form | crispy }}
                         <div class="text-right">
@@ -48,4 +67,22 @@
         </div>
     </div>
 
+{% endblock %}
+
+{% block postloadjs %}
+<script type="text/javascript">
+    $( ".star-rating" ).change(function() {
+        var starRating = $('input[name=stars]:checked').val();
+        var hiddenRating = $('input[name=rating]')
+        hiddenRating.val(starRating)
+});
+
+$( document ).ready(function() {
+    var hiddenRating = $('input[name=rating]').val();
+    var starRating = $('input:radio[name=stars]');
+    if(starRating.is(':checked') === false) {
+        starRating.filter(`[value=${hiddenRating}]`).prop('checked', true);
+    }
+});
+</script>
 {% endblock %}
