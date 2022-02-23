@@ -36,8 +36,27 @@
                 <p class="mb-0 product-detail-name"><strong>{{ product.name }}</strong></p>
             </div>
                 <div class="col-12 col-md-6">
-                    <form action="{% url 'add_review' product.id%}" method="POST" class="form mt-5 mr-lg-5">
+                    <form action="{% url 'add_review' product.id%}" method="POST" id="reviewForm" class="form mt-5 mr-lg-5">
                         {% csrf_token %}
+                        <div class="form-group col-3 star-col">
+                            <label class="text-left">Rating*</label>
+                            <div class="star-rating">
+                                <input type="radio" name="stars" id="star-a" value="5" required/>
+                                <label for="star-a"></label>
+                          
+                                <input type="radio" name="stars" id="star-b" value="4"/>
+                                <label for="star-b"></label>
+                            
+                                <input type="radio" name="stars" id="star-c" value="3"/>
+                                <label for="star-c"></label>
+                            
+                                <input type="radio" name="stars" id="star-d" value="2"/>
+                                <label for="star-d"></label>
+                            
+                                <input type="radio" name="stars" id="star-e" value="1"/>
+                                <label for="star-e"></label>
+                          </div>
+                        </div>
                         {{ form | crispy }}
                         <div class="text-right">
                             <a href="#" class="btn btn-outline-black rounded-0">Cancel</a>
@@ -48,4 +67,14 @@
         </div>
     </div>
 
+{% endblock %}
+
+{% block postloadjs %}
+<script type="text/javascript">
+    $( ".star-rating" ).change(function() {
+        starRating = $('input[name=stars]:checked').val();
+        hiddenRating = $('input[name=rating]')
+        hiddenRating.val(starRating)
+});
+</script>
 {% endblock %}
