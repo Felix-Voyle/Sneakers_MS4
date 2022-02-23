@@ -13,5 +13,6 @@ class ReviewForm(forms.ModelForm):
         widgets = {
             'product': HiddenInput(),
             'user': HiddenInput(),
+            'rating': HiddenInput(),
             'review': Textarea(attrs={'cols': 80, 'rows': 20}),
         }

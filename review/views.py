@@ -13,9 +13,13 @@ def update_product_rating(product):
     ratings = Review.objects.filter(product=product).values_list('rating', flat=True)
     quantity = len(ratings)
     total = sum(ratings)
-    average_rating = round(total / quantity, 2)
-    product.rating = average_rating
-    product.save()
+    if total > 0:
+        average_rating = round(total / quantity, 2)
+        product.rating = average_rating
+        product.save()
+    else:
+        product.rating = None
+        product.save()
 
 
 @login_required
@@ -46,7 +50,7 @@ def add_review(request, product_id):
             return redirect(reverse(
                 'product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add comment, Please ensure form\
+            messages.error(request, 'Failed to add review, Please ensure form\
                  is valid.')
 
     context = {
