@@ -14,4 +14,4 @@ class Review(models.Model):
     review = models.CharField(max_length=400, null=False, blank=False)
 
     def __str__(self):
-        return str(self.rating)
+        return str(self.review)

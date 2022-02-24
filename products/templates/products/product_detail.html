@@ -109,11 +109,22 @@
     </div>
     {% if reviews %}
     {% for review in reviews %}
-    <div class="row">
+    <div class="row mt-2">
         <div class="offset-1 col-10 offset-lg-2 col-lg-8 mb-2">
-            <div class="card">
-                <div class="card-header">
-                  {{ review.user }}
+            <div class="card review-card">
+                <div class="card-header review-card-header">
+                  <span class="mr-3"><strong>{{ review.user | capfirst }}</strong></span>
+                  {% if review.rating == 1 %}
+                    <span class="card-star"></span>
+                  {% elif review.rating == 2 %}
+                  <span class="card-star"></span><span class="card-star"></span>
+                  {% elif review.rating == 3 %}
+                  <span class="card-star"></span><span class="card-star"></span><span class="card-star"></span>
+                  {% elif review.rating == 4 %}
+                  <span class="card-star"></span><span class="card-star"></span><span class="card-star"></span><span class="card-star"></span>
+                  {% elif review.rating == 5 %}
+                  <span class="card-star"></span><span class="card-star"></span><span class="card-star"></span><span class="card-star"></span><span class="card-star"></span>
+                  {% endif %}
                   {% if user == review.user %}
                   <div class="text-right">
                     <a href="{% url 'edit_review' review.id %}" class="edit-btn">Edit</a>
@@ -130,9 +141,12 @@
     {% endfor %}
     {% else %}
     <div class="offset-1 col-10 offset-lg-2 col-lg-8 mb-5">
-        <div class="text-center">
-            <h4>No reviews yet, be the first to leave one!</h4>
-        </div>
+        <div class="card review-card">
+            <div class="card-body text-center">
+              <p class="card-text">No reviews yet! Be the first to leave one...</p>
+            </div>
+          </div>
+    </div>
     </div>
     {% endif %}
 
