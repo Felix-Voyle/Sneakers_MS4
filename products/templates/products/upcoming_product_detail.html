@@ -37,11 +37,7 @@
                     </p>
                     {% endif %}
                     <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
-                    {% if product.rating %}
-                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
-                    {% else %}
-                        <small class="text-muted">No Rating</small>
-                    {% endif %}
+                        <small class="text-muted">Release Date: {{ product.release_date }}</small>
                     <p class="mt-3">{{ product.description }}</p>
 
                             <div class="col-12 mt-2">
@@ -69,10 +65,10 @@
     </div>
     {% if comments %}
     {% for comment in comments %}
-    <div class="row">
+    <div class="row mt-2">
         <div class="offset-1 col-10 offset-lg-2 col-lg-8 mb-2">
-            <div class="card">
-                <div class="card-header">
+            <div class="card comment-card">
+                <div class="card-header comment-card-header">
                   {{ comment.user }}
                   {% if user == comment.user %}
                   <div class="text-right">

@@ -3,7 +3,6 @@ from django.forms import Textarea, HiddenInput
 from .models import Review
 
 
-
 class ReviewForm(forms.ModelForm):
     """Comment Form"""
     class Meta:
