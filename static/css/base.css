@@ -353,10 +353,10 @@ img {
 /* ------ bag ----- */
 
 .bag-img {
-    height: 200px;
-    width: 125px;
-    min-height: 60px;
-    min-width: 40px;
+    height: 250px;
+    width: 200px;
+    min-height: 100px;
+    min-width: 70px;
 }
 
 .bag-td {
@@ -371,9 +371,17 @@ img {
     cursor: pointer;
 }
 
-.remove-item {
-    position: relative;
-    top: 6rem;
+.bag-qty-mob {
+    position: relative; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (min-width: 768px) {
+    .remove-item {
+        position: relative;
+        top: 6rem;
+    }
 }
 
 /* --- Toasts --- */
