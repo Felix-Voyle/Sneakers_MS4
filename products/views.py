@@ -39,7 +39,8 @@ def shop_products(request):
         if 'brand' in request.GET:
             search_brand = request.GET['brand']
             products = products.filter(
-                release_date__lte=date_today, brand__name__contains=search_brand)
+                release_date__lte=date_today,
+                brand__name__contains=search_brand)
             search_brand = Brand.objects.filter(name__in=search_brand)
 
         if 'q' in request.GET:
