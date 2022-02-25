@@ -1,1 +1,1 @@
-web: gunicorn sneakers_ms4.wsgi:application
+web: gunicorn upkicks_ms4.wsgi:application
