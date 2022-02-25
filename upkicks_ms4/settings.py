@@ -105,8 +105,6 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
@@ -184,7 +182,7 @@ if 'USE_AWS' in os.environ:
         'CacheControl': 'max-age=94608000'
     }
 
-    #Bucket Config
+    # Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'upkicks'
     AWS_S3_REGION_NAME = 'eu-west-2'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
