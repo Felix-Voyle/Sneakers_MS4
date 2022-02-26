@@ -71,7 +71,6 @@ def edit_review(request, review_id):
     product = get_object_or_404(Product, name=review.product)
     data = {'product': product, 'user': request.user, 'rating': review.rating,
             'review': review}
-    print(data)
     form = ReviewForm(initial=data)
 
     if request.method == 'POST':
