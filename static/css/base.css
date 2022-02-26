@@ -13,6 +13,75 @@ body {
     background-color: #f8f8f8;
 }
 
+.wrap-text {
+    overflow-wrap: break-word;
+}
+
+/* Buttons */
+
+.shop-now-button {
+    background-color: #FF875C;
+    box-shadow: 2px 2px 2px 0 whitesmoke;
+    color: whitesmoke;
+    text-shadow: 2.5px 1.5px 0px #222;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus {
+    background: whitesmoke;
+    color: #222;
+    bottom: 1px;
+    right: 1px;
+    text-shadow: 1.5px 1px 0px #FF875C;
+    box-shadow: 3px 3px 6px 0 #FF875C;
+}
+
+.btn-coral {
+    background: #FF875C;
+    color: white;
+    box-shadow: 2px 2px 4px #222;
+    text-shadow: 1.5px 1px 0px #222;
+}
+
+.btn-coral:hover {
+    background: #222;
+    color: white;
+    box-shadow: 2px 2px 0px #FF875C;
+    text-shadow: 1.5px 1px 0px #FF875C;
+}
+
+.btn-white {
+    background-color: whitesmoke;
+    color: #FF875C;
+    box-shadow: 2px 2px 4px #222;
+    text-shadow: 1.5px 1px 0px #222;
+}
+
+.btn-white:hover {
+    background-color: #222;
+    color: whitesmoke;
+    box-shadow: 2px 2px 0px #FF875C;
+    text-shadow: 1.5px 1px 0px #FF875C;
+}
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.btn-outline-black {
+    background: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
 
 /* from Bulma */
 .icon {
@@ -35,24 +104,6 @@ body {
 
 .main-logo-link {
     width: fit-content;
-}
-
-.btn-black {
-    background: black;
-    color: white;
-}
-
-.btn-outline-black {
-    background: white;
-    color: black;
-    border: 1px solid black;
-}
-
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
-    color: white;
 }
 
 /*--header and nav bar--*/
@@ -158,20 +209,6 @@ img {
     object-fit: cover;
 }
 
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus {
-    background: #aab7c4;
-    color: white;
-    bottom: 1px;
-    right: 1px;
-    box-shadow: 3px 3px 6px 0 #fdefef
-}
-
-.shop-now-button {
-    background-color: #FF875C;
-}
-
 .shop-now-button, .callout {
     position: relative;
 }
@@ -179,6 +216,7 @@ img {
 .callout {
     bottom: 4rem;
     color: whitesmoke;
+    text-shadow: 2px 2px 2px #FF875C;
 }
 
 .title-shadow {
@@ -186,6 +224,10 @@ img {
 }
 
 /* ----Products------*/
+
+.product-detail-page-container {
+    position: relative;
+}
 
 .product-size {
     max-width: 210px;
@@ -218,6 +260,14 @@ img {
 
 .product-card {
     background-color: #404345;
+}
+
+.product-card-footer {
+    box-shadow: inset 0px 0px 10px 1px #FF875C;
+}
+
+.upcoming-card-footer {
+    box-shadow: inset 0px 0px 5px 1px #404345;
 }
 
 .upcoming-card {
@@ -289,6 +339,11 @@ img {
     box-shadow: 0px 1px 2px black;
 }
 
+.review-link, .comment-link {
+    position: relative;
+    left: 14px;;
+}
+
 .card-star:after {
     content: ' \2605';
     color: gold;
@@ -357,6 +412,7 @@ img {
     width: 200px;
     min-height: 100px;
     min-width: 70px;
+    box-shadow: 2px 2px 4px #222;
 }
 
 .bag-td {
