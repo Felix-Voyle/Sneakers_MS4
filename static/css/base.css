@@ -162,6 +162,10 @@ body {
     color: black;
 }
 
+.dropdown-menu.show {
+    box-shadow: 2.5px 2.5px 1px coral;
+}
+
 /* --- general and carousel overlay */
 
 .product-img-overlay {

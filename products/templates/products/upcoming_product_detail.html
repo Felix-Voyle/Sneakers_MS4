@@ -57,7 +57,6 @@
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
                 </div>
-            </div>
         </div>
     </div>
 
@@ -77,16 +76,16 @@
                 <div class="card-header comment-card-header">
                   {{ comment.user }}
                   {% if user == comment.user %}
-                  <div class="text-right">
-                    <a href="{% url 'edit' comment.id %}" class="edit-btn">Edit</a>
-                    <a href="{% url 'delete_comment' comment.id %}" class="delete-btn text-danger">Delete</a>
-                  </div>
+                    <div class="text-right">
+                        <a href="{% url 'edit' comment.id %}" class="edit-btn">Edit</a>
+                        <a href="{% url 'delete_comment' comment.id %}" class="delete-btn text-danger">Delete</a>
+                    </div>
                   {% endif %}
                 </div>
                 <div class="card-body">
                   <p class="card-text">{{ comment.comment }}</p>
                 </div>
-              </div>
+            </div>
         </div>
     </div>
     {% endfor %}
@@ -96,15 +95,14 @@
             <div class="card-body text-center">
               <p class="card-text">No comments yet! Be the first to leave one...</p>
             </div>
-          </div>
-    </div>
+        </div>
     </div>
     {% endif %}
 
 {% endblock %}
 
 {% block postloadjs %}
-<script type="text/javascript">
+<script>
     $('.delete-btn').click(function(event) {
     event.preventDefault();
     var c=confirm("Are you sure you want to delete this comment?");
