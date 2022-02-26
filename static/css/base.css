@@ -97,11 +97,6 @@ body {
     font-family: 'Oswald', sans-serif;
 }
 
-.mobile-bag-icon {
-    position: relative;
-    top: 10px
-}
-
 .main-logo-link {
     width: fit-content;
 }
@@ -120,6 +115,12 @@ body {
     text-shadow: 4px 3px 2px #81000f;
     color: #FF875C;
     font-size: 50px;
+}
+
+.mobile-bag-icon {
+    position: relative;
+    top: 10px;
+    color: #222;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -159,7 +160,7 @@ body {
 }
 
 .bag-active {
-    color: black;
+    text-shadow: 1px 1px #FF875C;
 }
 
 .dropdown-menu.show {
