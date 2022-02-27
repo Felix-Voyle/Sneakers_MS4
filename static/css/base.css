@@ -567,10 +567,6 @@ img {
     border-color: #222;
 }
 
-.allauth-form-inner-content a {
-	color: #17a2b8; /* text-info */
-}
-
 /*-------- Media Queries */
 @media (max-width: 426px) {
     .header-container {
