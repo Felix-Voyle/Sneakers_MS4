@@ -171,7 +171,61 @@ Other users think about them
 
 ## Deployment
 
----
+I deployed this site on heroku through github, below are the steps that i took;
+
+### Github 
+The project was deployed to Heroku using the following steps;
+1. Logged into my github accound and created a new workspace
+1. Using the Code Institute template i named my new project and created the repository
+1. using the method "pip3 freeze > requirements.txt" in the terminal you will create a requirements text file which heroku will need to deploy successfully"
+1. Before being able to deploy the app an initial commit must be made, see below example
+1. ```
+   cd myapp
+   git init
+   Initialized empty Git repository in .git/
+    git add .
+    git commit -m "My first commit"
+    Created initial commit 5df2d09: My first commit
+    44 files changed, 8393 insertions(+), 0 deletions(-)
+   create mode 100644 README
+   create mode 100644 Procfile
+   create mode 100644 app/controllers/source_file
+1. Any changes then have to be pushed to Github before Heroku can display the site in it's current state.
+
+### Forking the GitHub Repository
+By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
+
+1. Log in to GitHub and locate the GitHub Repository
+1. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+1. You should now have a copy of the original repository in your GitHub account.
+
+### Making a Local Clone
+1. Log in to GitHub and locate the GitHub Repository
+1. Under the repository name, click "Clone or download".
+1. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+1. Open Git Bash
+1. Change the current working directory to the location where you want the cloned directory to be made.
+1. Type git clone, and then paste the URL you copied in Step 3.
+```
+$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+```
+
+7. Press Enter. Your local clone will be created.
+
+```
+$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+> Cloning into `CI-Clone`...
+> remote: Counting objects: 10, done.
+> remote: Compressing objects: 100% (8/8), done.
+> remove: Total 10 (delta 1), reused 10 (delta 1)
+> Unpacking objects: 100% (10/10), done.
+```
+
+### Heroku
+1. Once logged into Heroku click 'New' then 'Create New app.'
+1. Inside the settings you need to 'reveal config vars' and update these variables to match any which you have stored locally. This information needs to remain updated with any new sensitive information you are keeping hidden from the front end.
+1. You are given three deployment methods. I choose to use the second option which was through Github (you will need to connect your heroku to your personal github).
+1. From here it is just a case of finding the repository you wish to deploy and selecting the correct branch. 
 
   
 

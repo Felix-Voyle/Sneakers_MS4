@@ -67,7 +67,15 @@ body {
 
 .btn-black {
     background: black;
-    color: white;
+    color: whitesmoke;
+    text-shadow: 1.5px 1px 0px #FF875C;
+}
+
+.btn-black:hover {
+    background-color: whitesmoke;
+    color: #FF875C;
+    box-shadow: 2px 2px 4px #222;
+    text-shadow: 1.5px 1px 0px #222;
 }
 
 .btn-outline-black {
@@ -76,11 +84,8 @@ body {
     border: 1px solid black;
 }
 
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
-    color: white;
+.delete-btns {
+    width: 50px;
 }
 
 /* from Bulma */
@@ -304,6 +309,42 @@ img {
         height: 345px;
         width: 80%;
     }
+}
+
+/* --- Confirm Delete pop up ------ */
+
+.confirm-delete-container {
+    height: 105vh;
+    position: fixed;
+    background-color: #000000d6;
+    width: 100%;
+    top: 0px;
+    z-index: 9999;
+    display: none;
+}
+
+.confirm-delete-card {
+    background-color: #FF875C;
+    height: 105px;
+    position: absolute;
+    top: 48%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-radius: 3px;
+    box-shadow: 2px 2px 0px whitesmoke;
+}
+
+.confirm-delete-msg {
+    background-color: whitesmoke;
+    border-radius: 3px;
+    border: 1px solid #222;
+    box-shadow: 2px 2px 3px #222;
+}
+
+.confirm-text {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-weight: 400;
 }
 
 /* ------ Product Form ----- */

@@ -1,0 +1,17 @@
+<script>
+    // Confirms delete before processing
+    $('.delete-btn').click(function(event) {
+    var href = $(this).attr('href');
+    console.log(href)
+    event.preventDefault();
+    $('#confirm-delete').css("display", "block");
+    $('#no, #yes').click(function () {
+   if (this.id == 'no') {
+    $('#confirm-delete').css("display", "none");
+   }
+   else if (this.id == 'yes') {
+    window.location = href;
+   }
+});
+});
+</script>
