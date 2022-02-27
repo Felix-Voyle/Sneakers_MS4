@@ -159,13 +159,30 @@ To do this I would probably link Orderlineitems to the User rather than or as we
   
 
 #### Frequent Vistor Goals
-- As a frequent visitor I would like to see upcoming releases and what
-Other users think about them
+- As a frequent visitor I would like to see upcoming releases and what Other users think about them
+1. There is a upcoming realeases section which shows when products will be released. User's can also comment on these upcoming releases.
 
 - As a frequent visitor I would like my details to be stored on my profile for a faster more efficient checkout
+1. Details for user's can be stored on their User Profile and are automatically updated onto their checkout form.
+1. On checking out if the user is registered they can select "save details for next time" which will automatically store their chackout information in their profile.
   
 
 ### Further Testing
+
+- Upon final testing before submission. When the site is deployed products sorted by rating show "No rating" or null as above the highest rating of 5. This behaved completely differently when the site was deployed locally and worked perfectly. I would need more time to fix this issue.
+
+- The site was tested across multiple browsers including ; Firefox, Chrome, Explorer and Safari.
+
+- The site was tested across multiple screen sizes and resolutions from small to larger phones, tablets, laptops and desktop monitors.
+
+- All navigation links and external links were tested extensively to ensure they were working on each and every page, and went to the right place.
+
+- Friends and family tested the site and provided feedback.
+
+- Used the W3C Markup Validator and W3C CSS Validator to check every page of the project to ensure there were no syntax errors.
+
+#### Validation checks
+
 
   
 
@@ -225,8 +242,52 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 1. Once logged into Heroku click 'New' then 'Create New app.'
 1. Inside the settings you need to 'reveal config vars' and update these variables to match any which you have stored locally. This information needs to remain updated with any new sensitive information you are keeping hidden from the front end.
 1. You are given three deployment methods. I choose to use the second option which was through Github (you will need to connect your heroku to your personal github).
-1. From here it is just a case of finding the repository you wish to deploy and selecting the correct branch. 
+1. From here it is just a case of finding the repository you wish to deploy and selecting the correct branch.
 
+### AWS
+1. Create an AWS account
+1. Create a bucket with object ownership set as "ACLs enabled and object ownership as "Bucket owner preferred"
+1. On the properties tab set "static web hosting" which gives an endpoint to access.
+1. On the permissions tab set a "CORS configuration".
+1. Generate a bucket policy using the "s3 bucket policy" with the action set to "GetObject".
+1. Copy the generated bucket policy back into your own bucket policy.
+1. Then on the "Access Control List" set public access to list objects for everyone.
+1. Next step is to go to the "IAM" dashboard and create a group. 
+1. Then go to policies and select create policy.
+1. I chose to import the s3 all access policy and changed the resource key value to the ARN provided for my bucket.
+1. Give the policy a name and decription and click create.
+1. Next create a user for the "IAM" and grant them programmatic access.
+1. Download the csv file provided which will give an Access Key Id and a secret access key. 
+1. In the settings for my app i then set up the storage of the files to AWS if 'USE_AWS' was set to true in the enviroment. Below is the configuration I used.
+
+`````
+if 'USE_AWS' in os.environ:
+    # Cache Control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 3099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000'
+    }
+
+    # Bucket Config
+    AWS_STORAGE_BUCKET_NAME = 'upkicks'
+    AWS_S3_REGION_NAME = 'eu-west-2'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+    # Static and media files
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    # Override static and media URLs in production
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+
+```````
+- Upon next deployment all static files are collected directly into the S3 bucket.
+- I then created my media files directory manually and uploaded the sites images to it.
   
 
 ## Credits
@@ -236,11 +297,11 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
   
 
 ### Code
-
+- All code was my own with the help of course materials and documentation.
   
 
 ### Content
-
+- All content was written by the developer
   
 
 ### Media
@@ -251,4 +312,6 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 ### Acknowledgements
 - All of the course material provided allowed me to create this site. Specifically the Boutique Ado mini project.
 
-- My mentor Narender who helped with any outstanding queries I had. 
+- My mentor Narender who helped with any outstanding queries I had.
+
+-Stack overflow was always a great help if i encountered any issues, I could usually find someone who has had the same problem and a rough fix to the issue. 
