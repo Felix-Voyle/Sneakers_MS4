@@ -92,9 +92,9 @@ Imagery for the homepage I used a range of six images. Three were for smaller mo
 -   A market place where users could buy and sell their own trainers.
 
 - Ideally I should be making sure that a user has actually purchased an item before allowing them to review it. I haven't managed to implement this as I ran out of time but think it would make the reviewing system much more accurate given the time.
-To do this I would probably link Orderlineitems to the User rather than or as well as UserProfile which would make them more readily available than needing a UserProfile instance. 
+To do this I would probably link Orderlineitems to the User rather than or as well as UserProfile which would make them more readily available than needing a UserProfile instance.
 
-  
+- To make the site properly functional. I would also need to add a stock system which only lets products show availability if the correct stock is held.
 
 ## Technologies used
 
