@@ -14,7 +14,7 @@
 
     <div class="overlay"></div>
     <div class="container mb-2">
-        <div class="row mt-3">
+        <div class="row text-center mt-3">
             <div class="col">
                 <hr>
                 <h2 class="logo-font mb-4 title-shadow">Shopping Bag</h2>
@@ -59,7 +59,7 @@
                     <table class="table table-sm table-borderless">
                         <thead class="text-black">
                             <tr>
-                                <th class="col text-right">Product Info</th>
+                                <th class="col col-md-4 text-right">Product Info</th>
                                 <th class="col"></th>
                                 <th class="col text-center">Price</th>
                                 <th class="col text-center">Qty</th>
@@ -100,7 +100,7 @@
                 </div>
                 {% else %}
                 <p class="lead mb-5">Your bag is empty.</p>
-                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                <a href="{% url 'products' %}" class="btn btn-white rounded-0 btn-lg">
                     <span class="icon">
                         <i class="fas fa-chevron-left"></i>
                     </span>

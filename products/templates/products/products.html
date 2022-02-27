@@ -105,16 +105,26 @@
         </div>
     </div>
 </div>
+
+<div class="confirm-delete-container" id="confirm-delete">
+    <div class="row">
+        <div class="offset-2 col-8 confirm-delete-card">
+            <div class="offset-1 col-10 mt-2 p-1 text-center confirm-delete-msg">
+                <p class="confirm-text">Are you sure you want to delete this item?</p>
+            </div>
+            <div class="row">
+                <div class="offset-2 col-8 my-2 text-center">
+                    <button class="btn-white delete-btns mr-2" id="no">No</button>
+                    <button class="btn-black delete-btns ml-2" id="yes"><i class="fa-solid fa-trash-can"></i>Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
 
 {% block postloadjs %}
-<script type="text/javascript">
-    $('.delete-btn').click(function(event) {
-    event.preventDefault();
-    var c=confirm("Are you sure you want to delete this product?");
-    if (c==true)   {  
-       window.location = $(this).attr('href');
-    }
-});
-</script>
+{{ block.super }}
+{% include 'products/includes/confirm_delete_script.html' %}
 {% endblock %}

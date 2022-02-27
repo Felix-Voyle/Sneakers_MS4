@@ -13,6 +13,80 @@ body {
     background-color: #f8f8f8;
 }
 
+.wrap-text {
+    overflow-wrap: break-word;
+}
+
+/* Buttons */
+
+.shop-now-button {
+    background-color: #FF875C;
+    box-shadow: 2px 2px 2px 0 whitesmoke;
+    color: whitesmoke;
+    text-shadow: 2.5px 1.5px 0px #222;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus {
+    background: whitesmoke;
+    color: #222;
+    bottom: 1px;
+    right: 1px;
+    text-shadow: 1.5px 1px 0px #FF875C;
+    box-shadow: 3px 3px 6px 0 #FF875C;
+}
+
+.btn-coral {
+    background: #FF875C;
+    color: white;
+    box-shadow: 2px 2px 4px #222;
+    text-shadow: 1.5px 1px 0px #222;
+}
+
+.btn-coral:hover {
+    background: #222;
+    color: white;
+    box-shadow: 2px 2px 0px #FF875C;
+    text-shadow: 1.5px 1px 0px #FF875C;
+}
+
+.btn-white {
+    background-color: whitesmoke;
+    color: #FF875C;
+    box-shadow: 2px 2px 4px #222;
+    text-shadow: 1.5px 1px 0px #222;
+}
+
+.btn-white:hover {
+    background-color: #222;
+    color: whitesmoke;
+    box-shadow: 2px 2px 0px #FF875C;
+    text-shadow: 1.5px 1px 0px #FF875C;
+}
+
+.btn-black {
+    background: black;
+    color: whitesmoke;
+    text-shadow: 1.5px 1px 0px #FF875C;
+}
+
+.btn-black:hover {
+    background-color: whitesmoke;
+    color: #FF875C;
+    box-shadow: 2px 2px 4px #222;
+    text-shadow: 1.5px 1px 0px #222;
+}
+
+.btn-outline-black {
+    background: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.delete-btns {
+    width: 50px;
+}
 
 /* from Bulma */
 .icon {
@@ -28,31 +102,8 @@ body {
     font-family: 'Oswald', sans-serif;
 }
 
-.mobile-bag-icon {
-    position: relative;
-    top: 10px
-}
-
 .main-logo-link {
     width: fit-content;
-}
-
-.btn-black {
-    background: black;
-    color: white;
-}
-
-.btn-outline-black {
-    background: white;
-    color: black;
-    border: 1px solid black;
-}
-
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
-    color: white;
 }
 
 /*--header and nav bar--*/
@@ -69,6 +120,12 @@ body {
     text-shadow: 4px 3px 2px #81000f;
     color: #FF875C;
     font-size: 50px;
+}
+
+.mobile-bag-icon {
+    position: relative;
+    top: 10px;
+    color: #222;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -108,7 +165,11 @@ body {
 }
 
 .bag-active {
-    color: black;
+    text-shadow: 1px 1px #FF875C;
+}
+
+.dropdown-menu.show {
+    box-shadow: 2.5px 2.5px 1px coral;
 }
 
 /* --- general and carousel overlay */
@@ -158,20 +219,6 @@ img {
     object-fit: cover;
 }
 
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus {
-    background: #aab7c4;
-    color: white;
-    bottom: 1px;
-    right: 1px;
-    box-shadow: 3px 3px 6px 0 #fdefef
-}
-
-.shop-now-button {
-    background-color: #FF875C;
-}
-
 .shop-now-button, .callout {
     position: relative;
 }
@@ -179,6 +226,7 @@ img {
 .callout {
     bottom: 4rem;
     color: whitesmoke;
+    text-shadow: 2px 2px 2px #FF875C;
 }
 
 .title-shadow {
@@ -186,6 +234,10 @@ img {
 }
 
 /* ----Products------*/
+
+.product-detail-page-container {
+    position: relative;
+}
 
 .product-size {
     max-width: 210px;
@@ -220,6 +272,14 @@ img {
     background-color: #404345;
 }
 
+.product-card-footer {
+    box-shadow: inset 0px 0px 10px 1px #FF875C;
+}
+
+.upcoming-card-footer {
+    box-shadow: inset 0px 0px 5px 1px #404345;
+}
+
 .upcoming-card {
     background-color: #FF875C;
 }
@@ -249,6 +309,42 @@ img {
         height: 345px;
         width: 80%;
     }
+}
+
+/* --- Confirm Delete pop up ------ */
+
+.confirm-delete-container {
+    height: 105vh;
+    position: fixed;
+    background-color: #000000d6;
+    width: 100%;
+    top: 0px;
+    z-index: 9999;
+    display: none;
+}
+
+.confirm-delete-card {
+    background-color: #FF875C;
+    height: 105px;
+    position: absolute;
+    top: 48%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-radius: 3px;
+    box-shadow: 2px 2px 0px whitesmoke;
+}
+
+.confirm-delete-msg {
+    background-color: whitesmoke;
+    border-radius: 3px;
+    border: 1px solid #222;
+    box-shadow: 2px 2px 3px #222;
+}
+
+.confirm-text {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-weight: 400;
 }
 
 /* ------ Product Form ----- */
@@ -287,6 +383,11 @@ img {
 .review-card-header, .comment-card-header {
     border-bottom: 1px solid #FF875C;
     box-shadow: 0px 1px 2px black;
+}
+
+.review-link, .comment-link {
+    position: relative;
+    left: 14px;;
 }
 
 .card-star:after {
@@ -357,6 +458,7 @@ img {
     width: 200px;
     min-height: 100px;
     min-width: 70px;
+    box-shadow: 2px 2px 4px #222;
 }
 
 .bag-td {
@@ -395,6 +497,7 @@ img {
 
 .custom-toast {
     overflow: visible;
+    box-shadow: 2px 2px 4px #222;
 }
 
 .toast-capper {
@@ -462,10 +565,6 @@ img {
 	color: #fff;
     background-color: #222;
     border-color: #222;
-}
-
-.allauth-form-inner-content a {
-	color: #17a2b8; /* text-info */
 }
 
 /*-------- Media Queries */
