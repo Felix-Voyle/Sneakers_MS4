@@ -185,7 +185,37 @@ To do this I would probably link Orderlineitems to the User rather than or as we
 
 #### Validation checks
 
+Throughout the building of the site i ran constant validation checks. However in the final 48 hours before submission both the jigsaw and w3 validator service were down. Therefore my validation checks were made through https://www.cssportal.com/css-validator/ for CSS and https://html5.validator.nu/ for the HTML.
 
+- [Jigsaw down](media/validation/jigsaw_down.png)
+
+- [w3 down](media/validation/jigsaw_down.png)
+
+- [CSS](media/validation/css_validation.png)
+
+- [Home page](media/validation/home.png)
+
+- [add product](media/validation/add_product.png)
+
+- [bag](media/validation/bag.png)
+
+- [brand](media/validation/brand.png)
+
+- [checkout success](media/validation/checkout_success.png)
+
+- [checkout](media/validation/checkout.png)
+
+- [product detail](media/validation/product_detail.png)
+
+- [products](media/validation/products.png)
+
+- [profile](media/validation/profile.png)
+
+- [review](media/validation/review.png)
+
+- [upcoming detail](media/validation/upcoming_detail.png)
+
+- [upcoming](media/validation/upcoming.png)
   
 
 ## Deployment
